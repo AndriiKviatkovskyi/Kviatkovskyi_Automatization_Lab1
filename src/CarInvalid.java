@@ -1,21 +1,11 @@
 public class CarInvalid {
 
-    private String manufacturer;
     private String model;
     private int year;
 
-    public CarInvalid(String manufacturer, String model, int year) {
-        this.manufacturer = manufacturer;
+    public CarInvalid(String model, int year) {
         this.model = model;
         this.year = year;
-    }
-
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
     }
 
     public String getModel() {
@@ -47,8 +37,7 @@ public class CarInvalid {
     @Override
     public String toString() {
         return "Car{" +
-                "manufacturer='" + manufacturer + '\'' +
-                ", model='" + model + '\'' +
+                "model='" + model + '\'' +
                 ", year=" + year +
                 '}';
     }

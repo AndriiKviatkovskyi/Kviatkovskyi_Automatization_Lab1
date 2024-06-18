@@ -2,23 +2,16 @@ import java.util.Objects;
 
 public class Car {
 
-    private String manufacturer;
     private String model;
     private int year;
 
-    public Car(String manufacturer, String model, int year) {
-        this.manufacturer = manufacturer;
+    public Car(String model, int year) {
         this.model = model;
         this.year = year;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
-    }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
+
 
     public String getModel() {
         return model;
@@ -42,28 +35,21 @@ public class Car {
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
         return year == car.year &&
-                manufacturer.equals(car.manufacturer) &&
                 model.equals(car.model);
     }
 
     @Override
     public int hashCode() {
-        int result = (manufacturer != null ? manufacturer.hashCode() : 0);
-        result = 17 * result + (model != null ? model.hashCode() : 0);
-        result = 31 * result + year;
-        return result;
+        return model.hashCode() * 31 + year;
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "manufacturer='" + manufacturer + '\'' +
-                ", model='" + model + '\'' +
+                "model='" + model + '\'' +
                 ", year=" + year +
                 '}';
     }
-
-
 
 
 }

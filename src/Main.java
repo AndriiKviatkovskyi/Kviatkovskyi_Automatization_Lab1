@@ -31,9 +31,9 @@ public class Main {
             System.out.println("\nTesting valid and invalid classes (Car):");
             System.out.println("\nValid:");
 
-            Car car1 = new Car("Mazda", "Miata", 2000);
-            Car car2 = new Car("Bentley", "Arnage", 2005);
-            Car car3 = new Car("Bentley", "Arnage", 2005);
+            Car car1 = new Car("Mazda Miata", 2000);
+            Car car2 = new Car("Bentley Arnage", 2005);
+            Car car3 = new Car("Bentley Arnage", 2005);
 
             System.out.println("Car 1: "+car1);
             System.out.println("Hash: "+car1.hashCode());
@@ -57,9 +57,9 @@ public class Main {
 
             System.out.println("\nInvalid:");
 
-            CarInvalid carInvalid1 = new CarInvalid("Mazda", "Miata", 2000);
-            CarInvalid carInvalid2 = new CarInvalid("Bentley", "Arnage", 2005);
-            CarInvalid carInvalid3 = new CarInvalid("Bentley", "Arnage", 2005);
+            CarInvalid carInvalid1 = new CarInvalid("Mazda Miata", 2000);
+            CarInvalid carInvalid2 = new CarInvalid("Bentley Arnage", 2005);
+            CarInvalid carInvalid3 = new CarInvalid("Bentley Arnage", 2005);
 
             System.out.println("Car 1: "+carInvalid1);
             System.out.println("Hash: "+carInvalid1.hashCode());
@@ -84,18 +84,18 @@ public class Main {
             }
 
             try (FileWriter writer = new FileWriter("hash.txt")) {
-                writer.write(md5Hash+"\n");
-                writer.write(sha1Hash+"\n");
-                writer.write(sha256Hash+"\n");
-                writer.write(sha1prngHash+"\n");
-                writer.write(drbgHash+"\n");
-                writer.write(windowsPrngHash+"\n");
-                writer.write(car1.hashCode()+"\n");
-                writer.write(car2.hashCode()+"\n");
-                writer.write(car3.hashCode()+"\n");
-                writer.write(carInvalid1.hashCode()+"\n");
-                writer.write(carInvalid2.hashCode()+"\n");
-                writer.write(carInvalid3.hashCode()+"\n");
+                writer.write("MD5: " + md5Hash+"\n");
+                writer.write("SHA-1: " +sha1Hash+"\n");
+                writer.write("SHA-256: " +sha256Hash+"\n");
+                writer.write("SHA1PRNG: " +sha1prngHash+"\n");
+                writer.write("DRBG: " +drbgHash+"\n");
+                writer.write("Windows-PRNG: " +windowsPrngHash+"\n");
+                writer.write("Car1 hash: " +car1.hashCode()+"\n");
+                writer.write("Car2 hash: " +car2.hashCode()+"\n");
+                writer.write("Car3 hash: " +car3.hashCode()+"\n");
+                writer.write("CarInvalid1 hash: " +carInvalid1.hashCode()+"\n");
+                writer.write("CarInvalid2 hash: " +carInvalid2.hashCode()+"\n");
+                writer.write("CarInvalid3 hash: " +carInvalid3.hashCode()+"\n");
             } catch (IOException e) {
                 e.getMessage();
             }
